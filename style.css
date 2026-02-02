@@ -1,0 +1,314 @@
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+    height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 45%),
+        linear-gradient(135deg, #2563eb, #7c3aed);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(90px);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* =====================
+   BUTTON
+===================== */
+.btn-group {
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 12px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin: 6px;
+    display: inline-block;
+    transition: 0.35s ease;
+}
+
+.primary {
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    color: #2563eb;
+    font-weight: 600;
+    box-shadow: 0 15px 40px rgba(255,255,255,0.25);
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(37,99,235,0.6);
+}
+
+.secondary {
+    border: 2px solid rgba(255,255,255,0.7);
+    color: white;
+}
+
+.secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* =====================
+   SECTION
+===================== */
+.section {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.subtitle {
+    opacity: 0.75;
+    margin-bottom: 50px;
+}
+
+.dark {
+    background: linear-gradient(180deg, #020617, #020617);
+}
+
+/* =====================
+   SKILLS
+===================== */
+.skills span {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e293b, #020617);
+    padding: 12px 22px;
+    border-radius: 999px;
+    margin: 8px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+/* =====================
+   PORTFOLIO
+===================== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.portfolio-card {
+    position: relative;
+    padding: 28px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #020617, #1e293b);
+    transition: 0.45s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-14px) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+}
+
+/* IMAGE BLOCK */
+.portfolio-img {
+    height: 180px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-card a {
+    position: relative;
+    z-index: 2;
+}
+
+/* PROJECT VARIANT (GRADIENT + IMAGE) */
+.villa {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(2,6,23,0.1),
+            rgba(2,6,23,0.8)
+        ),
+        url("villa.JPG");
+}
+
+.fortuna {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(2,6,23,0.1),
+            rgba(2,6,23,0.8)
+        ),
+        url("fortuna.JPG");
+}
+
+.coming-soon {
+    background: linear-gradient(135deg, #64748b, #334155);
+}
+
+/* CINEMATIC OVERLAY */
+.portfolio-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(
+        to top,
+        rgba(2,6,23,0.85),
+        transparent
+    );
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.portfolio-card:hover .portfolio-img::after {
+    opacity: 1;
+}
+
+/* CARD BORDER GLOW */
+.portfolio-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed, #22c55e);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.portfolio-card:hover::before {
+    opacity: 1;
+}
+
+/* CARD TEXT */
+.portfolio-card h3 {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.portfolio-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
+
+/* SMALL BUTTON */
+.btn.small {
+    padding: 9px 20px;
+    font-size: 0.85rem;
+}
+
+/* BADGE */
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #facc15;
+    color: #020617;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: linear-gradient(180deg, #020617, #020617);
+    text-align: center;
+    padding: 25px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* =====================
+   ANIMATION
+===================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade 1s forwards;
+}
+
+.delay { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.9s ease;
+}
